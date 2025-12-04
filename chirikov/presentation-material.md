@@ -1,14 +1,20 @@
 # Standard Map – Phase Space and K-Sweep Diagnostics
 
+<p>
 The Standard (Chirikov) Map is the iterated map:
+</p>
+
+<p align="center">
 \[
 \begin{aligned}
 I_{n+1} &= I_n + K\sin(\theta_n), \\
 \theta_{n+1} &= \theta_n + I_{n+1} \quad (\bmod\ 2\pi).
 \end{aligned}
 \]
+</p>
 
-It is an **area-preserving**, discrete-time dynamical system defined on a **2D torus** \((\theta, I)\). Unlike dissipative maps (e.g., the logistic map), the Standard Map has **no attractors**.
+It is an **area-preserving**, discrete-time dynamical system defined on a **2D torus** \((\theta, I)\).  
+Unlike dissipative maps (e.g., the logistic map), the Standard Map has **no attractors**.
 
 This document contains the figures used to illustrate how phase-space structure evolves as the kick parameter \( K \) varies.
 
@@ -86,10 +92,29 @@ These plots show, for each \( K \), the distribution of **late-time values** of 
 
 ## 3. Why This Is Not a Logistic Bifurcation Diagram
 
-- The logistic map is a **dissipative** system → trajectories collapse onto **attractors** → clean branching behavior.
-- The Standard Map is **area-preserving** → no collapse, no attractors.
-- Trajectories instead fill invariant curves, resonance islands, or chaotic regions.
-- Therefore, the I–K sweep is a **diagnostic tool**, not a true bifurcation diagram.
+<p>
+The logistic map is a **dissipative** system → trajectories collapse onto **attractors**, producing a clean branching structure described by  
+\[
+x_{n+1} = r x_n (1 - x_n).
+\]
+</p>
+
+<p>
+The Standard Map, by contrast, is **area-preserving**, and evolves via  
+\[
+\begin{aligned}
+I_{n+1} &= I_n + K\sin(\theta_n), \\
+\theta_{n+1} &= \theta_n + I_{n+1}.
+\end{aligned}
+\]
+</p>
+
+Therefore:
+
+- No collapse of trajectories  
+- No attractors  
+- No classical bifurcation structure  
+- The I–K sweep is a **diagnostic**, not a true bifurcation diagram
 
 ---
 
