@@ -205,7 +205,7 @@ class MapEvaluator:
 
             # Flatten
             K_vals.extend([K] * I_trajs.size)
-            I_vals.extend(I_trajs.flatten())
+            I_vals.extend(I_trajs.ravel())
 
         return np.array(K_vals), np.array(I_vals)
 
@@ -237,6 +237,6 @@ class MapEvaluator:
 
             # Flatten
             K_vals.extend([K] * theta_trajs.size)
-            theta_vals.extend(theta_trajs.flatten())
+            theta_vals.extend(theta_trajs.ravel())
 
         return np.array(K_vals), np.array(theta_vals)
