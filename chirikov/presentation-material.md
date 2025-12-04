@@ -6,10 +6,11 @@ The Standard (Chirikov) Map is the iterated map:
 > $I_{n+1} = I_n + K\sin(\theta_n)$
 > </p>
 > <p align="center">
-> $\theta_{n+1} = \theta_n + I_{n+1} \; (\bmod 2\pi)$
+> $\theta_{n+1} = \theta_n + I_{n+1} \; (\bmod\, 2\pi)$
 > </p>
 
-It is an **area-preserving**, discrete-time dynamical system defined on a **2D torus** $(\theta, I)$. Unlike dissipative maps (e.g., the logistic map), the Standard Map has **no attractors**.
+It is an **area-preserving**, discrete-time dynamical system defined on a **2D torus** $(\theta, I)$.  
+Unlike dissipative maps (e.g., the logistic map), the Standard Map has **no attractors**.
 
 This document contains the figures used to illustrate how phase-space structure evolves as the kick parameter $K$ varies.
 
@@ -17,49 +18,57 @@ This document contains the figures used to illustrate how phase-space structure 
 
 ## 1. Phase-Space Portraits
 
-These plots show trajectories in $(\theta, I)$ space for a range of initial conditions.
+These plots show trajectories in $(\theta, I)$ for a set of initial conditions and illustrate how the geometry of phase space changes with $K$.
 
 ---
 
-### K = 0.2 — Quasi-Periodic Regime
+### K = 0.2 — Completely Regular Motion
 
 ![phase_K_0.2](plots/figures/K0.2.png)
 
-**Key features:**
-- Smooth, closed **invariant curves (KAM tori)**
-- Both contractible and non-contractible tori are present
-- Motion is **quasi-periodic**
-- Minimal chaos; system nearly integrable
+**Key features (as seen in this plot):**
+- All trajectories lie on smooth, intact **invariant curves (KAM tori)**
+- No visible chaotic layers or resonance islands
+- Motion is entirely **quasi-periodic**
+- The system is close to the **integrable** limit
+
+This is the expected behavior of the Standard Map for small $K$: essentially no chaos.
 
 ---
 
-### K = 0.7 — Mixed Phase Space
+### K = 0.7 — Mostly Regular with Emerging Chaotic Regions
 
 ![phase_K_0.7](plots/figures/K0.7.png)
 
-**Key features:**
-- Several KAM tori have broken into **resonance islands**
-- Surrounding **island chains** and **stochastic layers** appear
-- Coexistence of **quasi-periodic**, **periodic**, and **chaotic** orbits
+**Key features (as seen in this plot):**
+- Many invariant curves still survive as smooth closed tori
+- A thin **chaotic layer** appears near $I \approx 1$, where some tori have broken
+- Trajectories in that band no longer lie on smooth curves, indicating **incipient stochastic behavior**
+- No clearly visible resonance island chains in this particular sampling
+- Phase space is beginning to show **mixed** behavior, but regular motion still dominates
+
+This is typical for intermediate $K$: small pockets of chaos appear, but the overall structure remains mostly ordered.
 
 ---
 
-### K = 2.0 — Larger K (Near Global Chaos)
+### K = 2.0 — Dominantly Chaotic Phase Space
 
 ![phase_K_2.0](plots/figures/K2.0.png)
 
-**Key features:**
-- Many invariant curves have been destroyed
-- Wide **chaotic layers** merge into a **chaotic sea**
-- Only small resonance islands persist
-- Motion becomes diffusive in $I$ → **transport**
+**Key features (as seen in this plot):**
+- A large **chaotic sea** fills most of the phase space (the diffuse background)
+- Only a few **resonance islands** and smooth tori persist; most have been destroyed
+- The chaotic region spans a wide range in $I$, enabling significant **transport**
+- Motion in chaotic areas is diffusive and unpredictable, while small regular islands remain embedded within the chaos
+
+At this value of $K$, global chaos is well developed.
 
 ---
 
 ## 2. I–K Diagnostic Plots  
 *(Illustrate structure breakdown; not true bifurcation diagrams)*
 
-These plots show, for each $K$, the distribution of **late-time values** of $I_n$ across many initial conditions.
+These plots show, for each value of $K$, the distribution of **late-time values** of $I_n$ across many initial conditions. They visualize how invariant structures break apart as $K$ increases.
 
 ---
 
@@ -68,9 +77,11 @@ These plots show, for each $K$, the distribution of **late-time values** of $I_n
 ![IK_diagnostic_clean](plots/figures/IK-diagnostic-clean.png)
 
 **Interpretation:**
-- Low $K$: horizontal bands = **KAM tori**
-- Intermediate $K$: splitting into **resonance tongues**
-- High $K$: cloud-like region = **global chaos**
+- Low $K$: horizontal bands correspond to intact **KAM tori**
+- Intermediate $K$: bands begin to bend and split
+- High $K$: values fill a broad region, indicating **global chaos**
+
+This plot emphasizes structure by subsampling for clarity.
 
 ---
 
@@ -79,21 +90,21 @@ These plots show, for each $K$, the distribution of **late-time values** of $I_n
 ![IK_diagnostic_dense](plots/figures/IK-diagnostic-dense.png)
 
 **Interpretation:**
-- Complete “texture” of the **area-preserving chaotic dynamics**
-- Resonance structures and stochastic layers visible at moderate $K$
-- Fully developed **chaotic sea** at larger $K$
+- Shows the full texture of area-preserving chaotic dynamics
+- Fine resonance structures and stochastic layers appear at moderate $K$
+- At high $K$, the phase space becomes densely chaotic
 
 ---
 
 ## 3. Why This Is Not a Logistic Bifurcation Diagram
 
-The logistic map is a **dissipative** system → trajectories collapse onto **attractors**, producing a clean branching structure described by
+The logistic map is a **dissipative** system: trajectories collapse onto **attractors**, producing a clean branching structure described by
 
 > <p align="center">
 > $x_{n+1} = r x_n (1 - x_n)$
 > </p>
 
-The Standard Map, by contrast, is **area-preserving**, and evolves via
+The Standard Map is fundamentally different. Being **area-preserving**, it evolves via
 
 > <p align="center">
 > $I_{n+1} = I_n + K\sin(\theta_n)$
@@ -102,38 +113,38 @@ The Standard Map, by contrast, is **area-preserving**, and evolves via
 > $\theta_{n+1} = \theta_n + I_{n+1}$
 > </p>
 
+and **never collapses** trajectories onto attractors.
+
 Therefore:
 
-- No collapse of trajectories  
-- No attractors  
-- No classical bifurcation structure  
-- The I–K sweep is a **diagnostic**, not a true bifurcation diagram
+- No fixed-point or periodic attractors  
+- No dissipative branching  
+- No classical bifurcation diagram  
+- Instead, we visualize **the breakdown of invariant curves**, not bifurcations
+
+The I–K sweep is a **diagnostic tool**, not a true bifurcation diagram.
 
 ---
 
 ## 4. Key Concepts
 
-These are the essential ideas needed to interpret the figures.
+These are the essential ideas needed to interpret the figures:
 
 - **Torus:** Phase space wraps around in both $\theta$ and $I$
 - **Orbit / trajectory:** Sequence $(\theta_n, I_n)$
 - **Area-preserving map:** No contraction or expansion; no attractors
-- **Invariant curves (KAM tori):** Closed curves supporting quasi-periodic motion
-- **Contractible / non-contractible tori:** Whether an invariant curve winds around the torus
-- **Resonance islands:** Regions near periodic points with closed loops around them
-- **Island chains:** Repeating resonance structures around stable periodic orbits
-- **Stochastic (chaotic) layer:** Chaotic region near a broken invariant torus
-- **Chaotic sea:** Large connected region of fully chaotic motion
-- **Periodic orbit:** Orbit that repeats after $q$ steps
-- **Quasi-periodic orbit:** Never repeats but stays on an invariant curve
-- **Chaotic orbit:** Sensitive dependence; explores a region unpredictably
+- **Invariant curves (KAM tori):** Smooth curves supporting quasi-periodic motion
+- **Contractible / non-contractible tori:** Whether an invariant curve winds fully around the torus
+- **Resonance islands:** Small regions of stable periodic motion (only clearly visible at larger $K$)
+- **Stochastic layer:** Thin chaotic region where invariant curves have broken
+- **Chaotic sea:** Large region of fully chaotic motion
 - **Transport:** Drift in the momentum-like coordinate $I$
-- **Rotation number:** Average angular change per iteration; distinguishes rational (resonant) and irrational (non-resonant) behavior
-- **Resonance tongues:** Features in the I–K plot associated with rational rotation numbers
+- **Rotation number:** Measures average angular change per iteration; distinguishes resonances
+- **Mixed phase space:** Coexistence of ordered and chaotic dynamics
 
 ---
 
-## Appendix A — Glossary (Complete Term List)
+## Appendix A — Glossary
 
 This appendix lists all terminology identified while studying the Standard Map.  
 Definitions are not included here; this section serves purely as a reference.
